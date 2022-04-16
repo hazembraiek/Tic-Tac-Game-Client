@@ -9,7 +9,10 @@ import * as Yup from "yup";
 function SignUp({ Auth, isLogin }) {
   const cookies = new Cookies();
   const RegisterUser = async (user) => {
-    const Data = await axios.post("http://localhost:8000/signup", user);
+    const Data = await axios.post(
+      "https://protected-forest-69166.herokuapp.com/signup",
+      user
+    );
     const { firstName, lastName, username, password, Token, userId } =
       Data.data.data.user;
     cookies.set("firstName", firstName);

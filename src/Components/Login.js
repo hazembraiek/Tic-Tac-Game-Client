@@ -10,7 +10,7 @@ import * as Yup from "yup";
 function Login({ Auth, isLogin }) {
   const cookies = new Cookies();
   const LoginUser = async ({ username, password }) => {
-    const Data = await axios.post("http://localhost:8000/login", {
+    const Data = await axios.post("https://protected-forest-69166.herokuapp.com/login", {
       username,
       password,
     });
