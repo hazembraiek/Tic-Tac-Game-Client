@@ -1,0 +1,27 @@
+.divInput {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1px;
+  margin-left: 5px;
+}
+
+input {
+  width: 350px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.301);
+  border-radius: 8px;
+  font-size: 17px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.is-invalid {
+  background-color: rgba(255, 0, 0, 0.116);
+}

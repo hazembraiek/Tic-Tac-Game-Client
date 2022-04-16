@@ -1,0 +1,245 @@
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login,
+.signUp {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: white;
+  padding: 20px 50px;
+  border-radius: 8px;
+}
+
+.board {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: rgb(53, 53, 255); */
+  gap: 7px;
+  position: relative;
+}
+.pole {
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  -webkit-box-shadow: -1px 1px 9px 7px rgb(2 55 249);
+  box-shadow: -1px 1px 9px 7px rgb(2 55 249);
+}
+.one,
+.two {
+  width: 7px;
+  height: 100%;
+}
+.one {
+  left: calc((100% - 14px) / 3);
+}
+.two {
+  right: calc((100% - 14px) / 3);
+}
+.three {
+  top: calc((100% - 14px) / 3);
+}
+.for {
+  bottom: calc((100% - 14px) / 3);
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: calc((100% - 14px) / 3);
+  min-height: calc((100% - 14px) / 3);
+  cursor: pointer;
+  position: relative;
+}
+
+.square .bar {
+  box-shadow: -1px 1px 9px 7px red;
+  position: absolute;
+  width: 130px;
+  height: 5px;
+  background-color: #ffffff;
+  top: 50%;
+  transform: translateY(50%);
+  border-radius: 3px;
+}
+
+.bar-one {
+  transform: translateY(50%) rotate(-45deg) !important;
+}
+.bar-two {
+  transform: translateY(50%) rotate(45deg) !important;
+}
+
+.circule {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  border: 6px solid #ffffff;
+  border-radius: 50%;
+  /* box-shadow: -1px 1px 9px 4px rgb(37 76 219 / 55%); */
+  box-shadow: inset -1px 1px 9px 4px rgb(37 76 219 / 55%),
+    -1px 1px 9px 4px rgb(37 76 219 / 55%);
+}
+
+.val {
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9rem;
+  margin: 0;
+  text-shadow: 0px 0px 18px #ff0000;
+}
+
+h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 0.6rem;
+}
+h1 {
+  text-align: center;
+}
+.btn {
+  margin: 0;
+  margin-top: 20px;
+  justify-content: space-around;
+  display: flex;
+}
+
+.Change {
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(228, 67, 67);
+}
+
+#btnLogout:before {
+  opacity: 1;
+}
+#btnLogout {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.joinGame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+h4 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.id_user {
+  border-radius: 20px;
+  color: white;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  box-shadow: 0px 0px 11px -4px white;
+  padding: 7px 13px;
+  margin: 0;
+}
+
+.waiting {
+  font-size: 24px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.waiting img {
+  margin: auto;
+  filter: invert(100%) sepia(11%) saturate(0%) hue-rotate(83deg)
+    brightness(105%) contrast(102%);
+  width: 35px;
+  height: 35px;
+  animation-name: rotate-s-loader;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate-s-loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Chat-Game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 100px;
+}
+
+@media (max-width: 767px) {
+  .App {
+    padding: 0 15px;
+  }
+  .login,
+  .signUp {
+    padding: 20px;
+    width: 100%;
+    margin: 0;
+  }
+  .login input,
+  .signUp input {
+    width: 85%;
+  }
+  #btnLogout {
+    top: 20px;
+    right: 20px;
+  }
+  .id_user {
+    white-space: nowrap;
+    display: none;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
