@@ -15,7 +15,7 @@ function JoinGmae() {
       alert("this id not found");
       return;
     }
-    const response = await client.queryUsers({ username: { $eq: rivalName } });
+    const response = await client.queryUsers({ name: { $eq: rivalName } });
 
     if (response.users.length === 0) {
       alert("User not found");

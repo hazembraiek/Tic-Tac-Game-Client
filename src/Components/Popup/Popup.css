@@ -4,8 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100% + 75px);
-  margin-top: -75px;
+  height: 100%;
   top: 0;
   right: 0;
   color: black;
@@ -23,7 +22,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  margin-top: -75px;
   z-index: 600;
 }
 .result {
@@ -32,4 +30,20 @@
   background: -webkit-linear-gradient(135deg, #52e5e7 10%, #130cb7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    width: 60px !important;
+  }
+  .circule {
+    width: 55%;
+    height: 55%;
+  }
+  .result {
+    font-size: 35px;
+  }
+  .modal__content {
+    padding: 20px;
+  }
 }
