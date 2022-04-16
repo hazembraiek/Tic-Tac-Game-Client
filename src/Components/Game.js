@@ -59,6 +59,7 @@ function Game({ channel, setChannel }) {
             type: "leave",
           });
         }}
+        className="Chat-leave"
       >
         Leave Game
       </Button>

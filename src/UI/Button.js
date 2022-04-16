@@ -5,7 +5,7 @@ function Button(props) {
     <button
       type={props.type}
       onClick={props.onClick}
-      className="glow-on-hover"
+      className={`glow-on-hover ${props.className}`}
       id={props.id}
     >
       {props.children}

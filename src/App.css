@@ -236,13 +236,30 @@ h4 {
   .Chat-Game {
     width: 300px;
     height: 300px;
+    flex-direction: column;
+    column-gap: 20px;
   }
   .board {
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 300px;
   }
   .joinGame input {
     width: 320px;
+  }
+  .waiting {
+    font-size: 20px;
+  }
+  .waiting img {
+    width: 27px;
+    height: 27px;
+  }
+  .gameContainer .Chat-leave {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .gameContainer .Chat-leave::before {
+    opacity: 1;
   }
 }
 /* Medium */

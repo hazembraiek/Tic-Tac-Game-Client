@@ -10,10 +10,13 @@ import * as Yup from "yup";
 function Login({ Auth, isLogin }) {
   const cookies = new Cookies();
   const LoginUser = async ({ username, password }) => {
-    const Data = await axios.post("https://protected-forest-69166.herokuapp.com/login", {
-      username,
-      password,
-    });
+    const Data = await axios.post(
+      "https://protected-forest-69166.herokuapp.com/login",
+      {
+        username,
+        password,
+      }
+    );
     const { firstName, lastName, Token, userId } = Data.data.user;
     cookies.set("firstName", firstName);
     cookies.set("lastName", lastName);
@@ -48,7 +51,7 @@ function Login({ Auth, isLogin }) {
               <Input label="User Name" name="username" type="text" />
               <Input label="Password" name="password" type="password" />
               <p className="Change" onClick={() => isLogin(false)}>
-                Singn Up
+                Sign Up
               </p>
               <div className="btn">
                 <Button type="submit">Login</Button>
