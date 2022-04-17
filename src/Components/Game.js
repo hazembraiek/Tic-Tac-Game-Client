@@ -17,7 +17,6 @@ function Game({ channel, setChannel }) {
   });
   channel.on(async (event) => {
     if (event.type === "leave") {
-      console.log("logout");
       window.location.reload();
     }
   });
