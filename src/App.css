@@ -12,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 .login,
@@ -208,7 +209,11 @@ h4 {
   column-gap: 100px;
 }
 
-@media (max-width: 767px) {
+.Show-Chat {
+  display: none;
+}
+
+@media (max-width: 480px) {
   .App {
     padding: 0 15px;
   }
@@ -231,7 +236,12 @@ h4 {
     display: none;
   }
   .str-chat__main-panel {
-    display: none;
+    position: absolute;
+    bottom: -250%;
+    transition: all 0.3s;
+    z-index: 15;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .Chat-Game {
     width: 300px;
@@ -243,11 +253,38 @@ h4 {
     width: 300px;
     height: 300px;
   }
+  .screenChat {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.267);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+    z-index: 10;
+    left: 0;
+  }
+  .Chat-Game.display-chat .str-chat__main-panel {
+    bottom: 40px;
+  }
   .joinGame input {
     width: 320px;
   }
   .waiting {
     font-size: 20px;
+  }
+  .Show-Chat {
+    display: block;
+    position: absolute !important;
+    bottom: 50px;
+    left: 20px;
+  }
+  .Show-screen {
+    display: block;
+  }
+  .Show-Chat.Hide-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
   }
   .waiting img {
     width: 27px;
@@ -263,14 +300,32 @@ h4 {
   }
 }
 /* Medium */
-@media (min-width: 992px) {
-  .container {
-    max-width: 970px;
+@media (min-width: 481px) and (max-width: 1280px) {
+  .board {
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
   }
-}
-/* Large */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1170px;
+  .Chat-Game {
+    top: 25px;
+  }
+  .bar {
+    width: 80px !important;
+  }
+  .circule {
+    width: 60%;
+    height: 60%;
+  }
+  .result {
+    font-size: 35px;
+  }
+  .modal__content {
+    padding: 20px;
+  }
+  .id_user {
+    display: none;
+  }
+  #btnLogout {
+    top: 20px;
   }
 }

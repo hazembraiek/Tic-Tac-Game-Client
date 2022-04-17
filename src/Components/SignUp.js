@@ -62,7 +62,7 @@ function SignUp({ Auth, isLogin }) {
               </p>
               <div className="btn">
                 <Button type="submit">Register</Button>
-                <Button>Reset</Button>
+                <Button type="reset">Reset</Button>
               </div>
             </Form>
           </div>

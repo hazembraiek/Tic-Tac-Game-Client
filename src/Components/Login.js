@@ -6,25 +6,27 @@ import Cookies from "universal-cookie";
 import { Form, Formik } from "formik";
 import Input from "../UI/Input";
 import * as Yup from "yup";
-
+// https://protected-forest-69166.herokuapp.com
 function Login({ Auth, isLogin }) {
   const cookies = new Cookies();
   const LoginUser = async ({ username, password }) => {
-    const Data = await axios.post(
-      "https://protected-forest-69166.herokuapp.com/login",
-      {
+    try {
+      const Data = await axios.post("http://localhost:8000/login", {
         username,
         password,
-      }
-    );
-    const { firstName, lastName, Token, userId } = Data.data.user;
-    cookies.set("firstName", firstName);
-    cookies.set("lastName", lastName);
-    cookies.set("username", username);
-    cookies.set("password", password);
-    cookies.set("Token", Token);
-    cookies.set("userId", userId);
-    Auth(true);
+      });
+      console.log(Data.statusText);
+      const { firstName, lastName, Token, userId } = Data.data.user;
+      cookies.set("firstName", firstName);
+      cookies.set("lastName", lastName);
+      cookies.set("username", username);
+      cookies.set("password", password);
+      cookies.set("Token", Token);
+      cookies.set("userId", userId);
+      Auth(true);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
   const validate = Yup.object().shape({
     username: Yup.string().required("user Name is required"),
@@ -55,7 +57,7 @@ function Login({ Auth, isLogin }) {
               </p>
               <div className="btn">
                 <Button type="submit">Login</Button>
-                <Button>Reset</Button>
+                <Button type="reset">Reset</Button>
               </div>
             </Form>
           </div>

@@ -5,19 +5,15 @@ import Button from "../UI/Button";
 import CustomInput from "./CustomInput";
 import Game from "./Game";
 
-function JoinGmae() {
+function JoinGmae(props) {
   const [rivalName, setRivalName] = useState("");
   const { client } = useChatContext();
   const [channel, setChannel] = useState(null);
-
+  props.channel(channel);
   const createChannel = async () => {
-    if (rivalName === client.userID) {
-      alert("this id not found");
-      return;
-    }
     const response = await client.queryUsers({ name: { $eq: rivalName } });
 
-    if (response.users.length === 0) {
+    if (response.users.length === 0 || response.users[0].id === client.userID) {
       alert("User not found");
       return;
     }

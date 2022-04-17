@@ -2,8 +2,6 @@ import { useChannelStateContext, useChatContext } from "stream-chat-react";
 import Button from "../../UI/Button";
 import "./Popup.css";
 function Modal(props) {
-  const { client } = useChatContext();
-  const { channel } = useChannelStateContext();
   const HidePopup = async () => {
     await props.channel.stopWatching();
     props.setChannel(null);

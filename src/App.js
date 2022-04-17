@@ -5,9 +5,10 @@ import SignUp from "./Components/SignUp";
 import { StreamChat } from "stream-chat";
 import { useState } from "react";
 import JoinGame from "./Components/JoinGame";
-import { Chat } from "stream-chat-react";
+import { Chat, useChannelStateContext } from "stream-chat-react";
 import Button from "./UI/Button";
 function App() {
+  const [channel, setChannel] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
   const cookies = new Cookies();
@@ -28,7 +29,8 @@ function App() {
       )
       .then((user) => setIsAuth(true));
   }
-  const logOut = () => {
+  console.log(channel);
+  const logOut = async () => {
     cookies.remove("Token");
     cookies.remove("userId");
     cookies.remove("firstName");
@@ -38,12 +40,17 @@ function App() {
     cookies.remove("username");
     client.disconnectUser();
     setIsAuth(false);
+    await channel.stopWatching();
+    setChannel(null);
+    channel.sendEvent({
+      type: "leave",
+    });
   };
   return (
     <div className="App">
       {isAuth ? (
         <Chat client={client}>
-          <JoinGame />
+          <JoinGame channel={setChannel} />
           <Button onClick={logOut} id="btnLogout">
             Logout
           </Button>
